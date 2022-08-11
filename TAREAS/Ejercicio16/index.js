@@ -43,5 +43,6 @@ papelera.addEventListener("dragover", event => {
 
 papelera.addEventListener("drop", event => {
     const id_parrafo = event.dataTransfer.getData("id")
+    //buscamos el id del elemento que se está arrastrando por su "id" y lo borramos
     document.getElementById(id_parrafo).remove()
 })
