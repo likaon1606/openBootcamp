@@ -5,7 +5,7 @@
 
 const parrafos = document.querySelectorAll(".parrafo")
 const secciones = document.querySelectorAll(".seccion")
-
+const papelera = document.querySelector(".papelera")
 
 parrafos.forEach(parrafo => {
     parrafo.addEventListener("dragstart", event => {
@@ -35,3 +35,13 @@ secciones.forEach(seccion => {
     })
 })
 
+//Eliminar párrafos
+papelera.addEventListener("dragover", event => {
+    event.preventDefault()
+    event.dataTransfer.dropEffect = "move"
+})
+
+papelera.addEventListener("drop", event => {
+    const id_parrafo = event.dataTransfer.getData("id")
+    document.getElementById(id_parrafo).remove()
+})
